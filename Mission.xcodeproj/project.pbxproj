@@ -13,7 +13,6 @@
 		D3BA0F3C2A0542CF001C66C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0F3A2A0542CF001C66C5 /* Main.storyboard */; };
 		D3BA0F3E2A0542D0001C66C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0F3D2A0542D0001C66C5 /* Assets.xcassets */; };
 		D3BA0F412A0542D0001C66C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0F3F2A0542D0001C66C5 /* LaunchScreen.storyboard */; };
-		D3BA0F4B2A0542DD001C66C5 /* Mission in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0F482A0542DD001C66C5 /* Mission */; };
 		D3BA0F4C2A0542DD001C66C5 /* WebLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */; };
 		D3BA0F4D2A0542DD001C66C5 /* WebLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -27,7 +26,6 @@
 		D3BA0F3D2A0542D0001C66C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3BA0F402A0542D0001C66C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3BA0F422A0542D0001C66C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3BA0F482A0542DD001C66C5 /* Mission */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Mission; sourceTree = "<group>"; };
 		D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLinkTableViewCell.xib; sourceTree = "<group>"; };
 		D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebLinkTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,12 +64,11 @@
 				D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */,
 				D3BA0F382A0542CF001C66C5 /* ViewController.swift */,
 				D3BA0F3A2A0542CF001C66C5 /* Main.storyboard */,
+				D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */,
+				D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */,
 				D3BA0F3D2A0542D0001C66C5 /* Assets.xcassets */,
 				D3BA0F3F2A0542D0001C66C5 /* LaunchScreen.storyboard */,
 				D3BA0F422A0542D0001C66C5 /* Info.plist */,
-				D3BA0F482A0542DD001C66C5 /* Mission */,
-				D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */,
-				D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3BA0F412A0542D0001C66C5 /* LaunchScreen.storyboard in Resources */,
-				D3BA0F4B2A0542DD001C66C5 /* Mission in Resources */,
 				D3BA0F3E2A0542D0001C66C5 /* Assets.xcassets in Resources */,
 				D3BA0F3C2A0542CF001C66C5 /* Main.storyboard in Resources */,
 				D3BA0F4C2A0542DD001C66C5 /* WebLinkTableViewCell.xib in Resources */,
