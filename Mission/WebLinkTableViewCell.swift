@@ -25,10 +25,9 @@ class WebLinkTableViewCell: UITableViewCell {
     
     @IBAction func trashBtnClicked(_ sender: UIButton) {
             print(#fileID, #function, #line, "- 지우기 버튼이 클릭되었을 때")
-        mainView.delete(mainView)
-        webTextFiled.delete(webTextFiled)
-        deleteButton.delete(deleteButton)
-        
+//
+//        WebLinkTableViewCell.EditingStyle.de
+//
     }
     
     

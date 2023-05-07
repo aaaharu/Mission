@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D34D105D2A07D4EE00424206 /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D105C2A07D4EE00424206 /* ConnectVC.swift */; };
 		D3BA0F352A0542CF001C66C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */; };
 		D3BA0F372A0542CF001C66C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */; };
 		D3BA0F392A0542CF001C66C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F382A0542CF001C66C5 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D34D105C2A07D4EE00424206 /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		D3BA0F312A0542CF001C66C5 /* Mission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */,
 				D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */,
 				D3BA0F382A0542CF001C66C5 /* ViewController.swift */,
+				D34D105C2A07D4EE00424206 /* ConnectVC.swift */,
 				D3BA0F3A2A0542CF001C66C5 /* Main.storyboard */,
 				D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */,
 				D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3BA0F4D2A0542DD001C66C5 /* WebLinkTableViewCell.swift in Sources */,
+				D34D105D2A07D4EE00424206 /* ConnectVC.swift in Sources */,
 				D3BA0F392A0542CF001C66C5 /* ViewController.swift in Sources */,
 				D3BA0F352A0542CF001C66C5 /* AppDelegate.swift in Sources */,
 				D3BA0F372A0542CF001C66C5 /* SceneDelegate.swift in Sources */,

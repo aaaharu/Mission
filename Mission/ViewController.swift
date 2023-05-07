@@ -26,7 +26,18 @@ class ViewController: UIViewController {
         myTableView.register(webLinkNib, forCellReuseIdentifier: webLinkCell)
     }
 
+    @IBAction func backToMainVC(unwindSegue: UIStoryboardSegue) {
+        
+    }
 
+    
+    @IBAction func addBtnClicked(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "navToAddVC", sender: self)
+    }
+    
+    
+    
+    
 }
 
 // MARK: - TableView DataSource
