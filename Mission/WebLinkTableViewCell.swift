@@ -10,17 +10,22 @@ import UIKit
 
 class WebLinkTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var mainView: UIView!
     
-    @IBOutlet weak var webTextFiled: UITextView!
+
+    @IBOutlet var myView: WebLinkTableViewCell!
+    
+    
+    @IBOutlet weak var webTextView: UITextView!
     
     @IBOutlet weak var deleteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
             print(#fileID, #function, #line, "- <# 주석 #>")
-        
+       
     }
+    
+ 
     
     
     @IBAction func trashBtnClicked(_ sender: UIButton) {
@@ -32,5 +37,7 @@ class WebLinkTableViewCell: UITableViewCell {
     
     
 }
+
+
 
 

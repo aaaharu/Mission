@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         myTableView.dataSource = self
         
         myTableView.register(webLinkNib, forCellReuseIdentifier: webLinkCell)
+        
+   
     }
 
     @IBAction func backToMainVC(unwindSegue: UIStoryboardSegue) {
@@ -49,8 +51,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            print(#fileID, #function, #line, "- <# 주석 #>")
         
         if let cell:WebLinkTableViewCell = myTableView.dequeueReusableCell(withIdentifier: webLinkCell, for: indexPath) as? WebLinkTableViewCell {
+          
             return cell
         }
         

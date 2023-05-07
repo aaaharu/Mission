@@ -12,26 +12,22 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WebLinkTableViewCell" rowHeight="141" id="n6H-PQ-LxX" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
-                        <rect key="frame" x="20" y="30" width="361" height="60"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
+                        <rect key="frame" x="0.0" y="30" width="442" height="80"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="fdfadsfadfasfdafasfasdfasdfasd" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZGi-dx-QiS">
-                                <rect key="frame" x="0.0" y="0.0" width="301" height="60"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="fdfadsfadfasfdafasfasdfasdfasd" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZGi-dx-QiS">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="CYk-Xz-XGn"/>
-                                    <constraint firstAttribute="width" constant="301" id="R2e-9B-gJ2"/>
-                                </constraints>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">
-                                <rect key="frame" x="301" y="0.0" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">
+                                <rect key="frame" x="301" y="0.0" width="80" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="poD-Fs-del" secondAttribute="height" multiplier="1:1" id="uk0-sh-aVL"/>
@@ -43,6 +39,15 @@
                                 </buttonConfiguration>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="poD-Fs-del" firstAttribute="centerY" secondItem="ZGi-dx-QiS" secondAttribute="centerY" id="52f-V0-v1h"/>
+                            <constraint firstItem="poD-Fs-del" firstAttribute="leading" secondItem="NTD-gu-TFR" secondAttribute="leading" constant="301" id="9se-sI-DDq"/>
+                            <constraint firstItem="ZGi-dx-QiS" firstAttribute="top" secondItem="NTD-gu-TFR" secondAttribute="top" id="B5X-vr-sPS"/>
+                            <constraint firstAttribute="trailing" secondItem="poD-Fs-del" secondAttribute="trailing" id="X3V-k7-scg"/>
+                            <constraint firstAttribute="bottom" secondItem="ZGi-dx-QiS" secondAttribute="bottom" id="bmf-vs-0et"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGi-dx-QiS" secondAttribute="trailing" constant="80" id="owE-h0-qjh"/>
+                            <constraint firstItem="ZGi-dx-QiS" firstAttribute="leading" secondItem="NTD-gu-TFR" secondAttribute="leading" id="vhm-jC-nCl"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -52,7 +57,12 @@
                     <constraint firstAttribute="bottom" secondItem="NTD-gu-TFR" secondAttribute="bottom" constant="51" id="PPk-qq-9mT"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="149.61832061068702" y="-90.492957746478879"/>
+            <connections>
+                <outlet property="deleteButton" destination="poD-Fs-del" id="8dX-NR-yeV"/>
+                <outlet property="myView" destination="HAO-jv-BI7" id="U8Q-Gd-Neh"/>
+                <outlet property="webTextView" destination="ZGi-dx-QiS" id="EA0-af-4kf"/>
+            </connections>
+            <point key="canvasLocation" x="203" y="-88"/>
         </tableViewCell>
     </objects>
     <resources>

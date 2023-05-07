@@ -79,26 +79,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zZD-oz-kqa">
-                                <rect key="frame" x="20" y="151" width="353" height="568"/>
+                                <rect key="frame" x="20" y="151" width="353" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-xc-MX6">
-                                <rect key="frame" x="20" y="752" width="353" height="35"/>
+                                <rect key="frame" x="20" y="778" width="353" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqb-XU-vMS">
+                                <rect key="frame" x="20.000000000000007" y="750" width="100.66666666666669" height="28.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+ 웹사이트 추가">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bud-yv-WU8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bud-yv-WU8" firstAttribute="bottom" secondItem="V2I-xc-MX6" secondAttribute="bottom" constant="31" id="2E7-Df-Vki"/>
+                            <constraint firstItem="bud-yv-WU8" firstAttribute="bottom" secondItem="V2I-xc-MX6" secondAttribute="bottom" constant="5" id="2E7-Df-Vki"/>
                             <constraint firstItem="bud-yv-WU8" firstAttribute="trailing" secondItem="Qts-AV-QzO" secondAttribute="trailing" constant="218.33333333333331" id="5rv-7D-nV5"/>
+                            <constraint firstItem="sqb-XU-vMS" firstAttribute="leading" secondItem="zZD-oz-kqa" secondAttribute="leading" id="6DX-tY-jwn"/>
                             <constraint firstItem="Qts-AV-QzO" firstAttribute="leading" secondItem="bud-yv-WU8" secondAttribute="leading" constant="20" id="FgW-IP-wgq"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="top" secondItem="zZD-oz-kqa" secondAttribute="bottom" constant="33" id="HbR-vl-1TV"/>
                             <constraint firstItem="zZD-oz-kqa" firstAttribute="top" secondItem="Qts-AV-QzO" secondAttribute="bottom" constant="24" id="KiP-P6-uu7"/>
                             <constraint firstItem="Qts-AV-QzO" firstAttribute="top" secondItem="bud-yv-WU8" secondAttribute="top" id="ONf-9Z-hAX"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="centerX" secondItem="bud-yv-WU8" secondAttribute="centerX" id="Orw-Tt-hA0"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="leading" secondItem="zZD-oz-kqa" secondAttribute="leading" id="T97-oX-gTU"/>
+                            <constraint firstItem="sqb-XU-vMS" firstAttribute="top" secondItem="zZD-oz-kqa" secondAttribute="bottom" constant="5" id="YXH-Nr-pzL"/>
                             <constraint firstItem="zZD-oz-kqa" firstAttribute="leading" secondItem="Qts-AV-QzO" secondAttribute="leading" id="cfZ-mg-R0u"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" id="t3f-2I-1G3"/>
                             <constraint firstItem="bud-yv-WU8" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" constant="20" id="v1U-Ja-n25"/>
