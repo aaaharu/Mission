@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,63 +11,54 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WebLinkTableViewCell" rowHeight="141" id="n6H-PQ-LxX" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
-                        <rect key="frame" x="0.0" y="30" width="442" height="80"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
+                        <rect key="frame" x="20" y="30" width="412" height="60"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="fdfadsfadfasfdafasfasdfasdfasd" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZGi-dx-QiS">
-                                <rect key="frame" x="0.0" y="0.0" width="301" height="80"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atX-Gg-WEb">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="60"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">
-                                <rect key="frame" x="301" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="352" y="0.0" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="poD-Fs-del" secondAttribute="height" multiplier="1:1" id="uk0-sh-aVL"/>
+                                    <constraint firstAttribute="width" constant="60" id="eTa-th-LTI"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system" title="">
                                     <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="trashBtnClicked:" destination="n6H-PQ-LxX" eventType="touchUpInside" id="gFI-qa-qUq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="poD-Fs-del" firstAttribute="centerY" secondItem="ZGi-dx-QiS" secondAttribute="centerY" id="52f-V0-v1h"/>
-                            <constraint firstItem="poD-Fs-del" firstAttribute="leading" secondItem="NTD-gu-TFR" secondAttribute="leading" constant="301" id="9se-sI-DDq"/>
-                            <constraint firstItem="ZGi-dx-QiS" firstAttribute="top" secondItem="NTD-gu-TFR" secondAttribute="top" id="B5X-vr-sPS"/>
-                            <constraint firstAttribute="trailing" secondItem="poD-Fs-del" secondAttribute="trailing" id="X3V-k7-scg"/>
-                            <constraint firstAttribute="bottom" secondItem="ZGi-dx-QiS" secondAttribute="bottom" id="bmf-vs-0et"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGi-dx-QiS" secondAttribute="trailing" constant="80" id="owE-h0-qjh"/>
-                            <constraint firstItem="ZGi-dx-QiS" firstAttribute="leading" secondItem="NTD-gu-TFR" secondAttribute="leading" id="vhm-jC-nCl"/>
+                            <constraint firstAttribute="height" constant="60" id="a4i-SS-09K"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="NTD-gu-TFR" secondAttribute="trailing" constant="41" id="2WW-fM-416"/>
+                    <constraint firstAttribute="trailing" secondItem="NTD-gu-TFR" secondAttribute="trailing" constant="10" id="2WW-fM-416"/>
                     <constraint firstItem="NTD-gu-TFR" firstAttribute="top" secondItem="HAO-jv-BI7" secondAttribute="top" constant="30" id="8BH-KK-T0v"/>
                     <constraint firstItem="NTD-gu-TFR" firstAttribute="leading" secondItem="HAO-jv-BI7" secondAttribute="leading" constant="20" symbolic="YES" id="K8a-pn-LMa"/>
-                    <constraint firstAttribute="bottom" secondItem="NTD-gu-TFR" secondAttribute="bottom" constant="51" id="PPk-qq-9mT"/>
+                    <constraint firstAttribute="bottom" secondItem="NTD-gu-TFR" secondAttribute="bottom" constant="10" id="PPk-qq-9mT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="deleteButton" destination="poD-Fs-del" id="8dX-NR-yeV"/>
-                <outlet property="myView" destination="HAO-jv-BI7" id="U8Q-Gd-Neh"/>
-                <outlet property="webTextView" destination="ZGi-dx-QiS" id="EA0-af-4kf"/>
+                <outlet property="linkNameButton" destination="atX-Gg-WEb" id="vn6-BI-D1c"/>
             </connections>
             <point key="canvasLocation" x="203" y="-88"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="trash.fill" catalog="system" width="119" height="128"/>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

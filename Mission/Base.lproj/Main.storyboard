@@ -32,7 +32,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="웹사이트 추가 하러가기"/>
                                 <connections>
                                     <action selector="addBtnClicked:" destination="Xke-65-fN4" eventType="touchUpInside" id="9FL-h7-yKA"/>
-                                    <action selector="backToMainVCWithUnwindSegue:" destination="Xke-65-fN4" eventType="touchUpInside" id="3aX-Oo-i75"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -56,13 +55,13 @@
                     <connections>
                         <outlet property="myTableView" destination="sgX-9T-zxj" id="EJB-wi-Dar"/>
                         <segue destination="8gL-fy-wMH" kind="push" identifier="navToAddVC" id="emu-cJ-dxW"/>
-                        <segue destination="di8-Pt-Z0k" kind="unwind" unwindAction="backToMainVCWithUnwindSegue:" id="vR9-uq-pFU"/>
+                        <segue destination="di8-Pt-Z0k" kind="unwind" identifier="backToFirstVC" unwindAction="backToMainVCWithUnwindSegue:" id="Fpu-mP-91i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-oG-cit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="di8-Pt-Z0k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1147.3282442748091" y="-740.14084507042253"/>
+            <point key="canvasLocation" x="1016" y="-780"/>
         </scene>
         <!--ConnectVC-->
         <scene sceneID="FDV-U4-y2q">
@@ -86,6 +85,9 @@
                                 <rect key="frame" x="20" y="778" width="353" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료"/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="8gL-fy-wMH" eventType="touchUpInside" id="J6k-37-FWY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqb-XU-vMS">
                                 <rect key="frame" x="20.000000000000007" y="750" width="100.66666666666669" height="28.333333333333371"/>
@@ -113,14 +115,20 @@
                             <constraint firstItem="bud-yv-WU8" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" constant="20" id="v1U-Ja-n25"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ABH-Np-MZe"/>
+                    <navigationItem key="navigationItem" id="ABH-Np-MZe">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="uWh-fX-E1o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="connectTableView" destination="zZD-oz-kqa" id="qXP-XU-Uyo"/>
+                        <outlet property="finishBtn" destination="V2I-xc-MX6" id="VYU-cc-7OD"/>
+                        <segue destination="CuI-2j-6wj" kind="unwind" identifier="NavToSecondVC" unwindAction="closingSecondVCWithUnwindSegue:" id="R2o-ge-NUh"/>
+                        <segue destination="CuI-2j-6wj" kind="unwind" identifier="NavToFirstVC" unwindAction="backToMainVCWithUnwindSegue:" id="ERe-mj-sLp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5Z-ci-Shz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CuI-2j-6wj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1913.740458015267" y="-740.14084507042253"/>
+            <point key="canvasLocation" x="1914" y="-728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZVV-mb-9CK">

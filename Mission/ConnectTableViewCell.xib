@@ -39,13 +39,14 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="hy9-eO-bUr" firstAttribute="top" secondItem="q0P-lB-89B" secondAttribute="top" constant="13.666666666666664" id="7qg-Lb-SuP"/>
                     <constraint firstItem="hy9-eO-bUr" firstAttribute="leading" secondItem="q0P-lB-89B" secondAttribute="leading" constant="10" id="GPG-OO-6sr"/>
-                    <constraint firstItem="hy9-eO-bUr" firstAttribute="centerY" secondItem="q0P-lB-89B" secondAttribute="centerY" id="pLg-mp-SVw"/>
                     <constraint firstAttribute="trailing" secondItem="hy9-eO-bUr" secondAttribute="trailing" constant="10" id="uMK-ee-MVW"/>
+                    <constraint firstAttribute="bottom" secondItem="hy9-eO-bUr" secondAttribute="bottom" constant="13.333333333333336" id="yMB-Sd-NDU"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="textField" destination="Mme-3j-PvJ" id="Qgg-SU-lPf"/>
+                <outlet property="myTextField" destination="Mme-3j-PvJ" id="Qgg-SU-lPf"/>
             </connections>
             <point key="canvasLocation" x="420.61068702290072" y="102.46478873239437"/>
         </tableViewCell>
