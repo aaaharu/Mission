@@ -3,28 +3,41 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ConnectTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectTableViewCell" rowHeight="75" id="Ycn-cx-pJo" customClass="ConnectTableViewCell" customModule="Mission" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="405" height="75"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ConnectTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConnectTableViewCell" rowHeight="90" id="Ycn-cx-pJo" customClass="ConnectTableViewCell" customModule="Mission" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ycn-cx-pJo" id="q0P-lB-89B">
-                <rect key="frame" x="0.0" y="0.0" width="405" height="75"/>
+                <rect key="frame" x="0.0" y="0.0" width="405" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hy9-eO-bUr">
-                        <rect key="frame" x="10" y="13.666666666666664" width="385" height="48"/>
+                        <rect key="frame" x="10" y="13.666666666666664" width="385" height="62.999999999999993"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mme-3j-PvJ">
-                                <rect key="frame" x="0.0" y="0.0" width="327" height="48"/>
+                                <rect key="frame" x="0.0" y="0.0" width="239" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzy-YA-v1K">
+                                <rect key="frame" x="249" y="0.0" width="63" height="63"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uzy-YA-v1K" secondAttribute="height" multiplier="1:1" id="E4p-Xb-M9A"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system" title="">
+                                    <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPe-DN-EN4">
-                                <rect key="frame" x="337" y="0.0" width="48" height="48"/>
+                                <rect key="frame" x="322" y="0.0" width="63" height="63"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EPe-DN-EN4" secondAttribute="height" multiplier="1:1" id="zYi-SE-f6N"/>
@@ -36,6 +49,9 @@
                                 </buttonConfiguration>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Uzy-YA-v1K" firstAttribute="width" secondItem="Uzy-YA-v1K" secondAttribute="height" multiplier="1:1" id="dWx-ua-CHg"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -46,12 +62,21 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="checkBox" destination="Uzy-YA-v1K" id="Rml-A6-ykL"/>
                 <outlet property="myTextField" destination="Mme-3j-PvJ" id="Qgg-SU-lPf"/>
+                <outlet property="trashBtn" destination="EPe-DN-EN4" id="Lks-Z6-QZa"/>
             </connections>
-            <point key="canvasLocation" x="420.61068702290072" y="102.46478873239437"/>
+            <point key="canvasLocation" x="420.61068702290072" y="97.183098591549296"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="trash.fill" catalog="system" width="119" height="128"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

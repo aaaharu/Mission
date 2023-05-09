@@ -24,7 +24,6 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     
     
     
-    
     var linkArray: [String] = ["asdfasadfasdfasdfasdfasdfasd","dseafwefawfwafe",
                                "etretwtqtrtrtrtrtrtr", "bbfbbbxxjjjjj"]
     
@@ -39,6 +38,8 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     
     
     @IBOutlet weak var myTableView: UITableView!
+
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,10 +75,16 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     @IBAction func backToMainVC(unwindSegue: UIStoryboardSegue) {
 //                self.myTableView.reloadData()
         if let secondVC = unwindSegue.source as? ConnectVC {
-            var dataList = secondVC.inputDataList
+            // 데이터 리스트 가져오기
+            let dataList:[LinkData] = secondVC.inputDataList
             print(#fileID, #function, #line, "\(dataList.count)")
-            var linkInputList: [String] = dataList.compactMap{ $0.linkInput }
+            // [LinkData] -> [String] 데이터 리스트의 타입을 linkunput객체에 string 배열로 넣어주기
+            let linkInputList: [String] = dataList.compactMap{ $0.linkInput }
+            // 스트링 배열이 가지고 있는 인덱스 패스 배열 가져오기
+                // appendLink에서 linkArray에 새로운 글자 담아주기
+                    // Indexpath 자리값이 가지고 있는 스트링 반환해주기
             let indexPathList: [IndexPath] = linkInputList.map{ appendLink(newLink: $0) }
+            // 테이블뷰에 인덱스 패스 추가하기
             myTableView.insertRows(at: indexPathList, with: .fade)
         }
 
@@ -91,9 +98,13 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
     }
     
+    // 스트링 배열을 빼서 스트링이 가지고 있는 인덱스 패스 가져오기
     func appendLink(newLink: String) -> IndexPath {
+        // 데이터를 담아주는 링크 배열에 새로운 문자열 데이터를 담아주기
         linkArray.append(newLink)
+        // 데이터가 가질 인덱스 패스 자리 넣어주기
         let indexPath = IndexPath(row: linkArray.count - 1, section: 0)
+        // 인덱스 패스 반환하기
         return indexPath
     }
     
@@ -141,11 +152,14 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
             
+            // 링크 배열 안의 스트링에 있는 인덱스 패스를 읽어서 문자를 가져오기
             let linkData: String = linkArray[indexPath.row]
-            //
+            
+            // 셀의 버튼 글자를 링크 배열의 글자로 바꿔주기
             cell.linkNameButton.setTitle(linkData, for: .normal)
             print(#fileID, #function, #line, "- 테스트\(indexPath)")
         
+            // 셀의 인덱스 패스는 테이블뷰가 가지고 있는 인덱스 패스
             cell.indexPath = indexPath
             
             cell.delegate = self // 데이터 기반이다. 데이터를 지우고 셀에 대한 것을 지워야함
