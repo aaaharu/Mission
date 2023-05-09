@@ -18,12 +18,12 @@ struct LinkData {
 
 class ConnectVC: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
-    var hi = 00
-    
     var selectedDeleteIndex: [IndexPath?] = []
     var unSelectedDeleteIndex: [IndexPath?] = []
+    
     var inputDataList: [LinkData] = [LinkData()]
-
+    
+    var deleteIndex: [IndexPath?] = []
     
     var optIndexPathArray: IndexPath?
     
@@ -89,39 +89,31 @@ class ConnectVC: UIViewController, UITableViewDelegate, UINavigationControllerDe
     
     
     @IBAction func deleteBtnAction(_ sender: UIButton) {
+        let index = selectedDeleteIndex.compactMap{ $0 }
+        var rowsArray: [Int] = []
         
-        print(#fileID, #function, #line, "- \(deleteBtnAction)")
-        
-        let finalDeleteIndex: [IndexPath?] = selectedDeleteIndex.filter {!unSelectedDeleteIndex.contains($0)}
-        print(finalDeleteIndex)
-        
-        print(#fileID, #function, #line, "- finalDeleteIndex: \(finalDeleteIndex)")
-//        selectedDeleteIndex.compactMap{ $0 }
-//        print(selectedDeleteBtn)
-        
-        
-            
-            let rowIndexPath = selectedDeleteIndex.last
-
-//            connectTableView.deleteRows(at: [checkCellIndexPath(row: , section: 0)], with: .fade
-//            )
+        for i in index {
+            let section = i.section
+            let row = i.row
+            rowsArray.append(row)
+            print(section, row)
         }
         
+        print(rowsArray)
+        var rows: Int? = nil
+        rowsArray.forEach{ (rows = $0) }
+        print(rows)
         
-//                       데이터 지우기
-//                        inputDataList.remove(at: rowIndexPath)
-//                        //셀 지우기
-//                        connectTableView.deleteRows(at: [IndexPath(row: rowIndexPath, section: 0)], with: .fade)
-        //
-        //                optIndexPathArray?.removeFirst()
-        //                optIndexPathArray?.removeLast()
-        //                // 인덱스 패스를 다시 안 불러오네...
-        //                    print(#fileID, #function, #line, "- indexPathArray 마지막: \(indexPathArray)")
-        //                // 테이블뷰 다시 불러오기. ok 된다
-//        connectTableView.reloadData()
-//    }
-    
-    
+        if let  rows = rows {
+            print(rows)
+            //데이터 지우기
+            inputDataList.remove(at: rows)
+            //셀 지우기
+            connectTableView.deleteRows(at: [IndexPath(row: rows, section: 0)], with: .fade )
+            connectTableView.reloadData()
+        }
+    }
+        
     
     
     
@@ -197,9 +189,9 @@ extension ConnectVC: UITableViewDataSource {
             print(#fileID, #function, #line, "- \(indexPathArray)")
             if let  rowIndexPath = indexPathArray.last {
                 print(rowIndexPath)
-                //데이터 지우기
+                //데이터 삭제
                 inputDataList.remove(at: rowIndexPath)
-                //셀 지우기
+                //셀 삭제
                 connectTableView.deleteRows(at: [IndexPath(row: rowIndexPath, section: 0)], with: .fade )
                 
                 //                optIndexPathArray?.removeFirst()
@@ -211,29 +203,42 @@ extension ConnectVC: UITableViewDataSource {
             }
         }
     }
-
+    
+  
     @objc func checkBoxClikced(_ sender: UIButton) {
-            print(#fileID, #function, #line, "- 체크박스")
+        print(#fileID, #function, #line, "- ")
+
+
         if sender.configuration?.baseForegroundColor == .systemGreen {
+            print(#fileID, #function, #line, "- 체크박스 선택 해제")
+
             sender.configuration?.baseForegroundColor = .systemGray
             unSelectedDeleteIndex.append(optIndexPathArray)
-                
-            print(#fileID, #function, #line, "- unSelected")
-        } else {
+            selectedDeleteIndex = Array(Set(selectedDeleteIndex).subtracting(Set(unSelectedDeleteIndex)))
+
+            print(#fileID, #function, #line, "-rowIndex \(selectedDeleteIndex)")
+
+    //            connectTableView.reloadRows(at: [indexPath], with: .none)
+            }
+
+         else {
             sender.configuration?.baseForegroundColor = .systemGreen
-            
+
             self.selectedDeleteBtn.isHidden = false
             selectedDeleteIndex.append(optIndexPathArray)
-            
-            print(#fileID, #function, #line, "- 체크박스 선택, \(selectedDeleteIndex)")
-         
+    //
+    //             connectTableView.reloadRows(at: [indexPath], with: .none)
+
+            //            connectTableView.reloadData()
+             print(#fileID, #function, #line, "-rowIndex \(selectedDeleteIndex)")
+
         }
-        
+
         connectTableView.reloadData()
-        
+
     }
-    
-    
+
+ 
     
     
     
