@@ -18,7 +18,7 @@ struct LinkData {
 
 class ConnectVC: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
-    var hi = 0
+    var hi = 00
     
     var selectedDeleteIndex: [IndexPath?] = []
     var unSelectedDeleteIndex: [IndexPath?] = []
