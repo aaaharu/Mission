@@ -18,6 +18,8 @@ struct LinkData {
 
 class ConnectVC: UIViewController, UITableViewDelegate, UINavigationControllerDelegate {
     
+    var hi = 0
+    
     var selectedDeleteIndex: [IndexPath?] = []
     var unSelectedDeleteIndex: [IndexPath?] = []
     var inputDataList: [LinkData] = [LinkData()]
@@ -209,7 +211,7 @@ extension ConnectVC: UITableViewDataSource {
             }
         }
     }
-    
+
     @objc func checkBoxClikced(_ sender: UIButton) {
             print(#fileID, #function, #line, "- 체크박스")
         if sender.configuration?.baseForegroundColor == .systemGreen {
