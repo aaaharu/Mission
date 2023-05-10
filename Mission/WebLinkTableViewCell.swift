@@ -13,6 +13,7 @@ class WebLinkTableViewCell: UITableViewCell {
             print(#fileID, #function, #line, "- <# 주석 #>")
 //        webTextView.text = string
     }
+    @IBOutlet weak var webLinkBtn: UIButton!
     
   weak var delegate: ViewControllerDelegate? = nil // 리모콘
     
@@ -23,6 +24,8 @@ class WebLinkTableViewCell: UITableViewCell {
 //            connectCell?.delegate = self
 //        }
 //    }
+    
+    
     
 
     var indexPath: IndexPath? = nil {

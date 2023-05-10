@@ -14,18 +14,17 @@ protocol ViewControllerDelegate: AnyObject{
 
 class ViewController: UIViewController, UITableViewDataSource, ViewControllerDelegate {
     func deleteLink(indexpath: IndexPath) {
-            print(#fileID, #function, #line, "- \(indexpath)")
+        print(#fileID, #function, #line, "- \(indexpath)")
         // 1. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
         linkArray.remove(at: indexpath.row)
         // 2. 셀을 지운다.
-//        myTableView.deleteRows(at: [indexpath], with: .fade)
+        //        myTableView.deleteRows(at: [indexpath], with: .fade)
         myTableView.reloadData()
     }
     
+    var getIndexPath: IndexPath? = nil
     
-    
-    var linkArray: [String] = ["asdfasadfasdfasdfasdfasdfasd","dseafwefawfwafe",
-                               "etretwtqtrtrtrtrtrtr", "bbfbbbxxjjjjj"]
+    var linkArray: [String] = []
     
     
     
@@ -38,12 +37,12 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     
     
     @IBOutlet weak var myTableView: UITableView!
-
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-  
+        
         
     }
     override func viewDidLoad() {
@@ -73,7 +72,7 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     }
     
     @IBAction func backToMainVC(unwindSegue: UIStoryboardSegue) {
-//                self.myTableView.reloadData()
+        //                self.myTableView.reloadData()
         if let secondVC = unwindSegue.source as? ConnectVC {
             // 데이터 리스트 가져오기
             let dataList:[LinkData] = secondVC.inputDataList
@@ -81,20 +80,20 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
             // [LinkData] -> [String] 데이터 리스트의 타입을 linkunput객체에 string 배열로 넣어주기
             let linkInputList: [String] = dataList.compactMap{ $0.linkInput }
             // 스트링 배열이 가지고 있는 인덱스 패스 배열 가져오기
-                // appendLink에서 linkArray에 새로운 글자 담아주기
-                    // Indexpath 자리값이 가지고 있는 스트링 반환해주기
+            // appendLink에서 linkArray에 새로운 글자 담아주기
+            // Indexpath 자리값이 가지고 있는 스트링 반환해주기
             let indexPathList: [IndexPath] = linkInputList.map{ appendLink(newLink: $0) }
             // 테이블뷰에 인덱스 패스 추가하기
             myTableView.insertRows(at: indexPathList, with: .fade)
         }
-
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-//        if let secondVC = segue.source as? ConnectVC {
-//
-//                print(#fileID, #function, #line, "- \(secondVC.inputDataList)")
-//        }
+        //        if let secondVC = segue.source as? ConnectVC {
+        //
+        //                print(#fileID, #function, #line, "- \(secondVC.inputDataList)")
+        //        }
         
     }
     
@@ -113,10 +112,10 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         self.performSegue(withIdentifier: "navToAddVC", sender: self)
         
         
-//        linkArray.append("asdfasdfasf")
-//        let indexPath = IndexPath(row: linkArray.count - 1, section: 0)
-//        myTableView.insertRows(at: [indexPath], with: .fade)
-//
+        //        linkArray.append("asdfasdfasf")
+        //        let indexPath = IndexPath(row: linkArray.count - 1, section: 0)
+        //        myTableView.insertRows(at: [indexPath], with: .fade)
+        //
     }
     
     //    func sendData(VC connectVC: ConnectVC, Input linkStored: String) {
@@ -152,19 +151,20 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
             
+            getIndexPath = indexPath
             // 링크 배열 안의 스트링에 있는 인덱스 패스를 읽어서 문자를 가져오기
             let linkData: String = linkArray[indexPath.row]
             
             // 셀의 버튼 글자를 링크 배열의 글자로 바꿔주기
             cell.linkNameButton.setTitle(linkData, for: .normal)
             print(#fileID, #function, #line, "- 테스트\(indexPath)")
-        
+            
             // 셀의 인덱스 패스는 테이블뷰가 가지고 있는 인덱스 패스
             cell.indexPath = indexPath
             
             cell.delegate = self // 데이터 기반이다. 데이터를 지우고 셀에 대한 것을 지워야함
             
-            
+            cell.linkNameButton.addTarget(self, action: #selector(linkGo), for: .touchUpInside)
             
             return cell
         }
@@ -173,11 +173,26 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
     }
     
+    @objc func linkGo(_ sender: UIButton) {
+            print(#fileID, #function, #line, "- <# 주석 #>")
+        if var getIndexPath = getIndexPath {
+            let linkData: String = "https://" + "\(linkArray[getIndexPath.row])"
+                print(#fileID, #function, #line, "- <# 주석 #>")
+            guard let settingsUrl = URL(string: linkData) else {
+                    print(#fileID, #function, #line, "- linkData:\(linkData)")
+                return
+            }
+            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+                print(#fileID, #function, #line, "- <# 주석 #>")
+        }
+    }
+        
+        
+    }
     
     
     
-}
-
-
-
+    
+    
+    
 
