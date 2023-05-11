@@ -25,7 +25,7 @@ class WebLinkTableViewCell: UITableViewCell {
     
     @IBOutlet weak var linkNameButton: UIButton!
     
-   
+    
     weak var vcTableView: UITableView?
     
     
@@ -65,17 +65,16 @@ class WebLinkTableViewCell: UITableViewCell {
             print(#fileID, #function, #line, "- tableView\(tableView)")
         }
         
-       
+        if sender.configuration?.baseForegroundColor == .systemGreen {
+            sender.configuration?.baseForegroundColor = .lightGray
+        } else {
+            sender.configuration?.baseForegroundColor = .systemGreen
+        }
+        
         
         
     }
     
     
     
-    
-    
 }
-
-
-
-
