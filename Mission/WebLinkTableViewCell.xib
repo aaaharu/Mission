@@ -3,31 +3,47 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WebLinkTableViewCell" rowHeight="141" id="n6H-PQ-LxX" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WebLinkTableViewCell" rowHeight="90" id="n6H-PQ-LxX" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
-                <rect key="frame" x="0.0" y="0.0" width="442" height="141"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6H-PQ-LxX" id="HAO-jv-BI7" customClass="WebLinkTableViewCell" customModule="Mission" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
-                        <rect key="frame" x="20" y="30" width="412" height="60"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NTD-gu-TFR">
+                        <rect key="frame" x="10" y="15" width="385" height="60"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atX-Gg-WEb">
-                                <rect key="frame" x="0.0" y="0.0" width="75" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atX-Gg-WEb">
+                                <rect key="frame" x="0.0" y="0.0" width="245" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">
-                                <rect key="frame" x="352" y="0.0" width="60" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTQ-tN-Ein">
+                                <rect key="frame" x="255" y="0.0" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nTQ-tN-Ein" secondAttribute="height" multiplier="1:1" id="afs-mU-Rhk"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system" title="">
+                                    <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="selectClicked:" destination="n6H-PQ-LxX" eventType="touchUpInside" id="wor-mm-glh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" verticalHuggingPriority="248" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">
+                                <rect key="frame" x="325" y="0.0" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="eTa-th-LTI"/>
+                                    <constraint firstAttribute="width" secondItem="poD-Fs-del" secondAttribute="height" multiplier="1:1" id="yVN-SF-9hf"/>
                                 </constraints>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -40,25 +56,33 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="a4i-SS-09K"/>
+                            <constraint firstAttribute="trailing" secondItem="poD-Fs-del" secondAttribute="trailing" id="HN6-yK-X1n"/>
                         </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="NTD-gu-TFR" secondAttribute="trailing" constant="10" id="2WW-fM-416"/>
-                    <constraint firstItem="NTD-gu-TFR" firstAttribute="top" secondItem="HAO-jv-BI7" secondAttribute="top" constant="30" id="8BH-KK-T0v"/>
-                    <constraint firstItem="NTD-gu-TFR" firstAttribute="leading" secondItem="HAO-jv-BI7" secondAttribute="leading" constant="20" symbolic="YES" id="K8a-pn-LMa"/>
-                    <constraint firstAttribute="bottom" secondItem="NTD-gu-TFR" secondAttribute="bottom" constant="10" id="PPk-qq-9mT"/>
+                    <constraint firstItem="NTD-gu-TFR" firstAttribute="top" secondItem="HAO-jv-BI7" secondAttribute="top" constant="15" id="8BH-KK-T0v"/>
+                    <constraint firstItem="NTD-gu-TFR" firstAttribute="leading" secondItem="HAO-jv-BI7" secondAttribute="leading" constant="10" id="K8a-pn-LMa"/>
+                    <constraint firstAttribute="bottom" secondItem="NTD-gu-TFR" secondAttribute="bottom" constant="15" id="PPk-qq-9mT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="deleteButton" destination="poD-Fs-del" id="8dX-NR-yeV"/>
                 <outlet property="linkNameButton" destination="atX-Gg-WEb" id="vn6-BI-D1c"/>
+                <outlet property="selectBtn" destination="nTQ-tN-Ein" id="SDg-YC-1uL"/>
             </connections>
-            <point key="canvasLocation" x="203" y="-88"/>
+            <point key="canvasLocation" x="201.52671755725191" y="-82.74647887323944"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="trash.fill" catalog="system" width="119" height="128"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

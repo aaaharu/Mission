@@ -44,30 +44,22 @@ class ConnectVC: UIViewController, UITableViewDelegate, UINavigationControllerDe
         connectTableView.register(myNib, forCellReuseIdentifier: "ConnectTableViewCell")
         
         warningBtn.isHidden = true
-        selectedDeleteBtn.isHidden = true
-        
-        webSiteAddbtn.addTarget(
-            
-            self, action: #selector(webSiteAddbtnClicked), for: .touchUpInside)
+      
+
         
     }
     
-    @objc func webSiteAddbtnClicked(_ sender: UIButton) {
-        print(#fileID, #function, #line, "- 버튼테스트1")
+    @IBAction func addBtnClicked(_ sender: UIButton) {
+            print(#fileID, #function, #line, "-  주석 ")
         if inputDataList.count < 3 {
-            // 2개 있을 때 하나 추가 가능해서 3개까지 추가 가능
-            inputDataList.append(contentsOf: [LinkData()])
+            inputDataList.append(LinkData())
+            print(#fileID, #function, #line, "\(inputDataList.count)")
             connectTableView.reloadData()
-            
-            print("inputDataList.count:\(inputDataList.count)")}
-        else {
-            print("웹사이트는 3개까지 추가 가능합니다")
+        } else {
             warningBtn.isHidden = false
-            
         }
-        print(#fileID, #function, #line, "- 버튼테스트2")
-        
     }
+    
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
@@ -171,8 +163,7 @@ extension ConnectVC: UITableViewDataSource {
             
             
             cell.trashBtn.addTarget(self, action: #selector(deleteCell), for: .touchUpInside)
-            cell.checkBox.addTarget(self, action: #selector(checkBoxClikced), for: .touchUpInside)
-            
+        
             return cell
             
         }
@@ -205,38 +196,7 @@ extension ConnectVC: UITableViewDataSource {
     }
     
   
-    @objc func checkBoxClikced(_ sender: UIButton) {
-        print(#fileID, #function, #line, "- ")
-
-
-        if sender.configuration?.baseForegroundColor == .systemGreen {
-            print(#fileID, #function, #line, "- 체크박스 선택 해제")
-
-            sender.configuration?.baseForegroundColor = .systemGray
-            unSelectedDeleteIndex.append(optIndexPathArray)
-            selectedDeleteIndex = Array(Set(selectedDeleteIndex).subtracting(Set(unSelectedDeleteIndex)))
-
-            print(#fileID, #function, #line, "-rowIndex \(selectedDeleteIndex)")
-
-    //            connectTableView.reloadRows(at: [indexPath], with: .none)
-            }
-
-         else {
-            sender.configuration?.baseForegroundColor = .systemGreen
-
-            self.selectedDeleteBtn.isHidden = false
-            selectedDeleteIndex.append(optIndexPathArray)
-    //
-    //             connectTableView.reloadRows(at: [indexPath], with: .none)
-
-            //            connectTableView.reloadData()
-             print(#fileID, #function, #line, "-rowIndex \(selectedDeleteIndex)")
-
-        }
-
-        connectTableView.reloadData()
-
-    }
+ 
 
  
     

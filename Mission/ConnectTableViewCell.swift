@@ -38,7 +38,7 @@ class ConnectTableViewCell:UITableViewCell {
     }
     @objc func didChangeText(inputTextField: UITextField) {
         
-        print(#fileID, #function, #line, "- \(indexPath),\(inputTextField.text)")
+        print(#fileID, #function, #line, "- \(indexPath),\(String(describing: inputTextField.text))")
         
         
         if let indexPath: IndexPath = self.indexPath,

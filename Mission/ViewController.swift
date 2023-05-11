@@ -9,23 +9,33 @@ import UIKit
 
 protocol ViewControllerDelegate: AnyObject{
     func deleteLink(indexpath: IndexPath)
+    
 }
 
 
-class ViewController: UIViewController, UITableViewDataSource, ViewControllerDelegate {
+
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate {
+    
+    //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
+
+    var selectedTags = Set<Int>()
+    
+    
     func deleteLink(indexpath: IndexPath) {
         print(#fileID, #function, #line, "- \(indexpath)")
         // 1. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
         linkArray.remove(at: indexpath.row)
         // 2. 셀을 지운다.
-        //        myTableView.deleteRows(at: [indexpath], with: .fade)
         myTableView.reloadData()
     }
+    
+    
     
     var getIndexPath: IndexPath? = nil
     
     var linkArray: [String] = []
     
+    @IBOutlet weak var selectedDeleteBtn: UIButton!
     
     
     var connectVC: ConnectVC? = ConnectVC()
@@ -50,6 +60,10 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
         
         myTableView.dataSource = self
+        myTableView.delegate = self
+        
+        myTableView.isUserInteractionEnabled = true
+        myTableView.allowsSelection = true
         
         
         myTableView.register(webLinkNib, forCellReuseIdentifier: webLinkCell)
@@ -61,15 +75,6 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     }
     
     
-    func sendData(string: String) {
-        // connectVC에서 전달된 값을 받아서
-        // 텍스트뷰에 채운다.
-        print(#fileID, #function, #line, "- <# 주석 #>")
-        //        getLink.append(string)
-        myTableView.reloadData()
-        
-        
-    }
     
     @IBAction func backToMainVC(unwindSegue: UIStoryboardSegue) {
         //                self.myTableView.reloadData()
@@ -107,6 +112,10 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         return indexPath
     }
     
+    @IBAction func selectedCellDelete(_ sender: UIButton) {
+        print(#fileID, #function, #line, "- <# 주석 #>")
+        
+    }
     
     @IBAction func addBtnClicked(_ sender: UIButton) {
         self.performSegue(withIdentifier: "navToAddVC", sender: self)
@@ -139,19 +148,26 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
     }
     
     
-    //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //        if let cell:WebLinkTableViewCell = myTableView.dequeueReusableCell(withIdentifier: webLinkCell, for: indexPath) as? WebLinkTableViewCell {
-    //            return cell
-    //        }
-    //       return UITableViewCell()
-    //    }
-    //
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
             
+            // 버튼이 눌려지면 태그 값은 인덱스 패스 값을 받아온다. (didSelectRow에 데이터가 가기 위해서, 버튼만 누르면 셀 선택 감지 X)
+            cell.selectBtn.tag = indexPath.row
+            
+            
+            // 태그값, 즉 버튼이 눌러져서 태그값이 전달되어 인덱스패스값으로 전환되었다면
+            // 해당 셀의 버튼은 눌려진 상태로 표시한다.
+            if selectedTags.contains(indexPath.row) {
+                cell.selectBtn.isSelected = true
+            } else {
+                cell.selectBtn.isSelected = false
+            }
+            
+            
             getIndexPath = indexPath
+            
             // 링크 배열 안의 스트링에 있는 인덱스 패스를 읽어서 문자를 가져오기
             let linkData: String = linkArray[indexPath.row]
             
@@ -162,7 +178,9 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
             // 셀의 인덱스 패스는 테이블뷰가 가지고 있는 인덱스 패스
             cell.indexPath = indexPath
             
-            cell.delegate = self // 데이터 기반이다. 데이터를 지우고 셀에 대한 것을 지워야함
+            
+            cell.delegate = self // 셀의 델리게이트는 viewcontroller이다.
+            
             
             cell.linkNameButton.addTarget(self, action: #selector(linkGo), for: .touchUpInside)
             
@@ -173,26 +191,87 @@ class ViewController: UIViewController, UITableViewDataSource, ViewControllerDel
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
+            
+            // 버튼의 태그 값은 눌려진 인덱스패스 값이다. (cellForRow와 함께)
+            cell.selectBtn.tag = indexPath.row
+            print(#fileID, #function, #line, "- cell.selectBtn.tag: \(cell.selectBtn.tag)")
+            
+            //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
+            
+            // tag(indexPath.row)값이 이미 있다면 그 값을 삭제해라
+            if selectedTags.contains(indexPath.row) {
+                selectedTags.remove(indexPath.row)
+            // 그 값이 없다면 태그모음에 에 저장해라
+            } else {
+                selectedTags.insert(indexPath.row)
+            }
+            
+            // 테이블뷰 다시 로드
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            
+            
+            print(#fileID, #function, #line, "- selectedTags: \(selectedTags)")
+            
+        }
+    }
+    
+    
+    
+    @IBAction func selectedDelete(_ sender: UIButton) {
+        print(#fileID, #function, #line, "- <# 주석 #>")
+        
+        // Set -> Array
+        let myArray = Array(selectedTags)
+        
+        var myIndexPathRow: Int? = nil
+        
+        // Array -> Int
+        for num in myArray {
+            myIndexPathRow = num
+        }
+        
+        print(#fileID, #function, #line, "- myIndex\(String(describing: myIndexPathRow))")
+        
+        // Int (IndexPath.row)
+        if let myIndexPathRow = myIndexPathRow {
+            
+            // 1. 선택된 셀의 인덱스를 selectedTag에서 제거한다. (셀이 삭제되어도 담겨 있는 값은 그대로 있기 떄문에)
+            selectedTags.remove(myIndexPathRow)
+            
+            // 2. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
+            linkArray.remove(at: myIndexPathRow)
+            
+            // 3. 셀을 지운다.
+            myTableView.reloadData()
+            
+        }
+        
+    }
+    
+    
     @objc func linkGo(_ sender: UIButton) {
-            print(#fileID, #function, #line, "- <# 주석 #>")
-        if var getIndexPath = getIndexPath {
+        print(#fileID, #function, #line, "- <# 주석 #>")
+        if let getIndexPath = getIndexPath {
             let linkData: String = "https://" + "\(linkArray[getIndexPath.row])"
-                print(#fileID, #function, #line, "- <# 주석 #>")
+            print(#fileID, #function, #line, "- <# 주석 #>")
             guard let settingsUrl = URL(string: linkData) else {
-                    print(#fileID, #function, #line, "- linkData:\(linkData)")
+                print(#fileID, #function, #line, "- linkData:\(linkData)")
                 return
             }
             UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
-                print(#fileID, #function, #line, "- <# 주석 #>")
+            print(#fileID, #function, #line, "- <# 주석 #>")
         }
     }
-        
-        
-    }
     
     
     
     
-    
-    
+}
+
+
+
+
+
 

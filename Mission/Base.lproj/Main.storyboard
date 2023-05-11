@@ -11,17 +11,13 @@
         <!--View Controller-->
         <scene sceneID="M4c-C4-VCf">
             <objects>
-                <viewController id="Xke-65-fN4" customClass="ViewController" customModule="Mission" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xke-65-fN4" customClass="ViewController" customModule="Mission" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7hU-Tl-mL3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-9T-zxj">
-                                <rect key="frame" x="20" y="154" width="353" height="602"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연결된 웹사이트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDy-X5-Rn4">
-                                <rect key="frame" x="20" y="103" width="132" height="24"/>
+                                <rect key="frame" x="20" y="103" width="132" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,14 +30,36 @@
                                     <action selector="addBtnClicked:" destination="Xke-65-fN4" eventType="touchUpInside" id="9FL-h7-yKA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FG-YL-4iQ">
+                                <rect key="frame" x="198" y="103" width="175" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="선택된 것 삭제">
+                                    <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteBtnAction:" destination="8gL-fy-wMH" eventType="touchUpInside" id="1GL-Vh-T8c"/>
+                                    <action selector="selectedCellDelete:" destination="Xke-65-fN4" eventType="touchUpInside" id="0I9-90-QFI"/>
+                                    <action selector="selectedDelete:" destination="Xke-65-fN4" eventType="touchUpInside" id="qpP-A4-paR"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-9T-zxj">
+                                <rect key="frame" x="20" y="165" width="353" height="591"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EKX-gt-Jyj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pDy-X5-Rn4" firstAttribute="leading" secondItem="EKX-gt-Jyj" secondAttribute="leading" constant="20" id="9p1-GO-28Y"/>
                             <constraint firstItem="y5T-Th-xum" firstAttribute="centerX" secondItem="EKX-gt-Jyj" secondAttribute="centerX" id="C1c-Cb-X6O"/>
+                            <constraint firstItem="EKX-gt-Jyj" firstAttribute="trailing" secondItem="0FG-YL-4iQ" secondAttribute="trailing" constant="20" id="Ceb-pd-ycU"/>
                             <constraint firstItem="sgX-9T-zxj" firstAttribute="top" secondItem="pDy-X5-Rn4" secondAttribute="bottom" constant="27" id="DoB-pG-rb3"/>
                             <constraint firstItem="y5T-Th-xum" firstAttribute="trailing" secondItem="sgX-9T-zxj" secondAttribute="trailing" id="Ebm-58-zDg"/>
+                            <constraint firstItem="0FG-YL-4iQ" firstAttribute="leading" secondItem="pDy-X5-Rn4" secondAttribute="trailing" constant="46" id="H1F-sX-00Y"/>
+                            <constraint firstItem="0FG-YL-4iQ" firstAttribute="bottom" secondItem="pDy-X5-Rn4" secondAttribute="bottom" id="RN6-cn-6fx"/>
+                            <constraint firstItem="0FG-YL-4iQ" firstAttribute="top" secondItem="pDy-X5-Rn4" secondAttribute="top" id="TC8-4X-ESA"/>
                             <constraint firstItem="sgX-9T-zxj" firstAttribute="leading" secondItem="pDy-X5-Rn4" secondAttribute="leading" id="jvk-me-5CC"/>
                             <constraint firstItem="EKX-gt-Jyj" firstAttribute="trailing" secondItem="sgX-9T-zxj" secondAttribute="trailing" constant="20" id="tPe-iv-Nie"/>
                             <constraint firstItem="EKX-gt-Jyj" firstAttribute="trailing" secondItem="pDy-X5-Rn4" secondAttribute="trailing" constant="241" id="toD-Cy-fU7"/>
@@ -54,6 +72,7 @@
                     <navigationItem key="navigationItem" id="kYQ-k4-OCk"/>
                     <connections>
                         <outlet property="myTableView" destination="sgX-9T-zxj" id="EJB-wi-Dar"/>
+                        <outlet property="selectedDeleteBtn" destination="0FG-YL-4iQ" id="q1C-6i-f4I"/>
                         <segue destination="8gL-fy-wMH" kind="push" identifier="navToAddVC" id="emu-cJ-dxW"/>
                         <segue destination="di8-Pt-Z0k" kind="unwind" identifier="backToFirstVC" unwindAction="backToMainVCWithUnwindSegue:" id="Fpu-mP-91i"/>
                     </connections>
@@ -72,13 +91,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="웹사이트 연결" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qts-AV-QzO">
-                                <rect key="frame" x="20" y="103" width="154.66666666666666" height="35"/>
+                                <rect key="frame" x="20" y="103" width="154.66666666666666" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zZD-oz-kqa">
-                                <rect key="frame" x="20" y="162" width="353" height="583"/>
+                                <rect key="frame" x="20" y="151" width="353" height="594"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-xc-MX6">
@@ -95,6 +114,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="+ 웹사이트 추가">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addBtnClicked:" destination="8gL-fy-wMH" eventType="touchUpInside" id="iJC-o4-vUb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDG-P4-HfO">
                                 <rect key="frame" x="175" y="749" width="198" height="29"/>
@@ -104,18 +126,6 @@
                                     <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukm-MS-k5K">
-                                <rect key="frame" x="252" y="103" width="121" height="35"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="선택된 것 삭제">
-                                    <color key="baseBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="deleteBtnAction:" destination="8gL-fy-wMH" eventType="touchUpInside" id="83O-V0-eeS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bud-yv-WU8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -123,8 +133,6 @@
                             <constraint firstItem="bud-yv-WU8" firstAttribute="bottom" secondItem="V2I-xc-MX6" secondAttribute="bottom" constant="5" id="2E7-Df-Vki"/>
                             <constraint firstItem="bud-yv-WU8" firstAttribute="trailing" secondItem="Qts-AV-QzO" secondAttribute="trailing" constant="218.33333333333331" id="5rv-7D-nV5"/>
                             <constraint firstItem="sqb-XU-vMS" firstAttribute="leading" secondItem="zZD-oz-kqa" secondAttribute="leading" id="6DX-tY-jwn"/>
-                            <constraint firstItem="Ukm-MS-k5K" firstAttribute="bottom" secondItem="Qts-AV-QzO" secondAttribute="bottom" id="7ps-65-zfP"/>
-                            <constraint firstItem="Ukm-MS-k5K" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" id="DCr-Ud-x8a"/>
                             <constraint firstItem="Qts-AV-QzO" firstAttribute="leading" secondItem="bud-yv-WU8" secondAttribute="leading" constant="20" id="FgW-IP-wgq"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="top" secondItem="zZD-oz-kqa" secondAttribute="bottom" constant="33" id="HbR-vl-1TV"/>
                             <constraint firstItem="zZD-oz-kqa" firstAttribute="top" secondItem="Qts-AV-QzO" secondAttribute="bottom" constant="24" id="KiP-P6-uu7"/>
@@ -137,7 +145,6 @@
                             <constraint firstItem="lDG-P4-HfO" firstAttribute="top" secondItem="zZD-oz-kqa" secondAttribute="bottom" constant="4" id="cMe-Cs-Jyu"/>
                             <constraint firstItem="zZD-oz-kqa" firstAttribute="leading" secondItem="Qts-AV-QzO" secondAttribute="leading" id="cfZ-mg-R0u"/>
                             <constraint firstItem="V2I-xc-MX6" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" id="t3f-2I-1G3"/>
-                            <constraint firstItem="Ukm-MS-k5K" firstAttribute="top" secondItem="Qts-AV-QzO" secondAttribute="top" id="tQD-LL-yf4"/>
                             <constraint firstItem="bud-yv-WU8" firstAttribute="trailing" secondItem="zZD-oz-kqa" secondAttribute="trailing" constant="20" id="v1U-Ja-n25"/>
                         </constraints>
                     </view>
@@ -147,7 +154,6 @@
                     <connections>
                         <outlet property="connectTableView" destination="zZD-oz-kqa" id="qXP-XU-Uyo"/>
                         <outlet property="finishBtn" destination="V2I-xc-MX6" id="VYU-cc-7OD"/>
-                        <outlet property="selectedDeleteBtn" destination="Ukm-MS-k5K" id="xvR-PX-5eS"/>
                         <outlet property="warningBtn" destination="lDG-P4-HfO" id="i3Q-SK-C7H"/>
                         <outlet property="webSiteAddbtn" destination="sqb-XU-vMS" id="hZO-QX-5HL"/>
                         <segue destination="CuI-2j-6wj" kind="unwind" identifier="NavToSecondVC" unwindAction="closingSecondVCWithUnwindSegue:" id="R2o-ge-NUh"/>
