@@ -36,7 +36,7 @@
                                     <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="selectClicked:" destination="n6H-PQ-LxX" eventType="touchUpInside" id="wor-mm-glh"/>
+                                    <action selector="selectButtonClikced:" destination="n6H-PQ-LxX" eventType="touchUpInside" id="XsT-NX-Wby"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="246" verticalHuggingPriority="248" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poD-Fs-del">

@@ -10,11 +10,17 @@ import UIKit
 protocol ViewControllerDelegate: AnyObject{
     func deleteLink(indexpath: IndexPath)
     
+    
 }
 
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate {
+  
+    var indexPathRowArray: [Int] = []
+    
+
+
     
     //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
 
@@ -154,16 +160,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
             
             // 버튼이 눌려지면 태그 값은 인덱스 패스 값을 받아온다. (didSelectRow에 데이터가 가기 위해서, 버튼만 누르면 셀 선택 감지 X)
-            cell.selectBtn.tag = indexPath.row
+//            cell.selectBtn.tag = indexPath.row
             
             
             // 태그값, 즉 버튼이 눌러져서 태그값이 전달되어 인덱스패스값으로 전환되었다면
             // 해당 셀의 버튼은 눌려진 상태로 표시한다.
-            if selectedTags.contains(indexPath.row) {
-                cell.selectBtn.isSelected = true
-            } else {
-                cell.selectBtn.isSelected = false
-            }
+//            if selectedTags.contains(indexPath.row) {
+//                cell.selectBtn.isSelected = true
+//            } else {
+//                cell.selectBtn.isSelected = false
+//            }
             
             
             getIndexPath = indexPath
@@ -178,7 +184,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // 셀의 인덱스 패스는 테이블뷰가 가지고 있는 인덱스 패스
             cell.indexPath = indexPath
             
+          
+    
             
+            cell.celldelegate = self
             cell.delegate = self // 셀의 델리게이트는 viewcontroller이다.
             
             
@@ -192,29 +201,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
-            
-            // 버튼의 태그 값은 눌려진 인덱스패스 값이다. (cellForRow와 함께)
-            cell.selectBtn.tag = indexPath.row
-            print(#fileID, #function, #line, "- cell.selectBtn.tag: \(cell.selectBtn.tag)")
-            
-            //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
-            
-            // tag(indexPath.row)값이 이미 있다면 그 값을 삭제해라
-            if selectedTags.contains(indexPath.row) {
-                selectedTags.remove(indexPath.row)
-            // 그 값이 없다면 태그모음에 에 저장해라
-            } else {
-                selectedTags.insert(indexPath.row)
-            }
-            
-            // 테이블뷰 다시 로드
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-            
-            
-            print(#fileID, #function, #line, "- selectedTags: \(selectedTags)")
-            
-        }
+//        if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
+//
+//            // 버튼의 태그 값은 눌려진 인덱스패스 값이다. (cellForRow와 함께)
+//            cell.selectBtn.tag = indexPath.row
+//            print(#fileID, #function, #line, "- cell.selectBtn.tag: \(cell.selectBtn.tag)")
+//
+//            //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
+//
+//            // tag(indexPath.row)값이 이미 있다면 그 값을 삭제해라
+//            if selectedTags.contains(indexPath.row) {
+//                selectedTags.remove(indexPath.row)
+//            // 그 값이 없다면 태그모음에 에 저장해라
+//            } else {
+//                selectedTags.insert(indexPath.row)
+//            }
+//
+//            // 테이블뷰 다시 로드
+//            tableView.reloadRows(at: [indexPath], with: .automatic)
+//
+//
+//            print(#fileID, #function, #line, "- selectedTags: \(selectedTags)")
+//
+//        }
     }
     
     
@@ -222,31 +231,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func selectedDelete(_ sender: UIButton) {
         print(#fileID, #function, #line, "- <# 주석 #>")
         
-        // Set -> Array
-        let myArray = Array(selectedTags)
         
-        var myIndexPathRow: Int? = nil
-        
-        // Array -> Int
-        for num in myArray {
-            myIndexPathRow = num
+        // 1. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
+        // 내림차순으로 정렬해야 오류가 안 생김. 그대로 삭제 하면 삭제할 떄마다 인덱스가 바뀌면서 오류 발생
+        for i in indexPathRowArray.sorted(by: >) {
+            linkArray.remove(at: i)
+            print(#fileID, #function, #line, "- indexpathRow: \(indexPathRowArray)")
+           
         }
         
-        print(#fileID, #function, #line, "- myIndex\(String(describing: myIndexPathRow))")
+        // 2. 셀을 지운다.(리로드)
+        myTableView.reloadData()
+        // 선택된 버튼의 인덱스로우 배열 데이터를 삭제해준다(새거로 만들기)
+        indexPathRowArray.removeAll()
         
-        // Int (IndexPath.row)
-        if let myIndexPathRow = myIndexPathRow {
-            
-            // 1. 선택된 셀의 인덱스를 selectedTag에서 제거한다. (셀이 삭제되어도 담겨 있는 값은 그대로 있기 떄문에)
-            selectedTags.remove(myIndexPathRow)
-            
-            // 2. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
-            linkArray.remove(at: myIndexPathRow)
-            
-            // 3. 셀을 지운다.
-            myTableView.reloadData()
-            
-        }
+        
+        //        // Set -> Array
+        //        let myArray = Array(selectedTags)
+        //
+        //        var myIndexPathRow: Int? = nil
+        //
+        //        // Array -> Int
+        //        for num in myArray {
+        //            myIndexPathRow = num
+        //        }
+        //
+        //        print(#fileID, #function, #line, "- myIndex\(String(describing: myIndexPathRow))")
+        //
+        //        // Int (IndexPath.row)
+        //        if let myIndexPathRow = myIndexPathRow {
+        //
+        //            // 1. 선택된 셀의 인덱스를 selectedTag에서 제거한다. (셀이 삭제되어도 담겨 있는 값은 그대로 있기 떄문에)
+        //            selectedTags.remove(myIndexPathRow)
+        //
+        //            // 2. 인덱스패스에 접근해서 linkArray의 선택된 셀의 데이터를 지운다.
+        //            linkArray.remove(at: myIndexPathRow)
+        //
+        //            // 3. 셀을 지운다.
+        //            myTableView.reloadData()
+        //
+        //        }
         
     }
     
@@ -271,6 +295,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 }
 
 
+
+
+extension ViewController: WebLinkTableViewCellDelegate {
+    
+    // 여기서부터 didSelectButton은 내가 지휘한다
+    // 지뢰 심기
+    func didSelectButton(sender: WebLinkTableViewCell) {
+       
+        guard let indexPath = self.myTableView.indexPath(for: sender) else { return }
+        
+        // sender의 버튼이 눌러졌을 때
+        if sender.selectBtn.isSelected {
+            // 1. 버튼을 초록색으로 바꾸고
+            sender.selectBtn.configuration?.baseForegroundColor = .systemGreen
+            // 2. 인덱스패스로우 값이 Array에 들어가 있지 않다면
+            if !self.indexPathRowArray.contains(indexPath.row) {
+                // 인덱스패스로우 배열에 추가한다
+                self.indexPathRowArray.append(indexPath.row)
+                print(#fileID, #function, #line, "- indexPathRowArray: \(self.indexPathRowArray)")
+            }
+        }
+        // sender의 버튼이 선택해제 되었을 때
+        else {
+            // 1. 센더의 버튼을 회색으로 바꾼다
+            sender.selectBtn.configuration?.baseForegroundColor = .lightGray
+            // 2. IndexPath값이 들어가 있다면 그 index를 찾아서
+            if let index = self.indexPathRowArray.firstIndex(of: indexPath.row) {
+                // 3. Array에서 row 값을 지운다.
+                self.indexPathRowArray.remove(at: index)
+                print(#fileID, #function, #line, "- indexPathRowArray: \(self.indexPathRowArray)")
+                
+            }
+        }
+    }
+}
+    
+
+    
 
 
 

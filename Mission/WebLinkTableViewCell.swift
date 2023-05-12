@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-protocol ButtonDelegate: AnyObject {
-    func buttonDidTap()
-}
 
+protocol WebLinkTableViewCellDelegate: AnyObject {
+    func didSelectButton(sender: WebLinkTableViewCell)
+}
 
 class WebLinkTableViewCell: UITableViewCell {
     @objc func sendData(string: String) {
@@ -22,6 +22,7 @@ class WebLinkTableViewCell: UITableViewCell {
     @IBOutlet weak var selectBtn: UIButton!
     weak var delegate: ViewControllerDelegate? = nil // 리모콘
     
+    var celldelegate: WebLinkTableViewCellDelegate?
     
     @IBOutlet weak var linkNameButton: UIButton!
     
@@ -40,11 +41,19 @@ class WebLinkTableViewCell: UITableViewCell {
     
     @IBOutlet weak var deleteButton: UIButton!
     
+    // 셀이 재사용될 때 호출, 셀의 상태를 초기화
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    
+        selectBtn.isSelected = false
+        selectBtn.configuration?.baseForegroundColor = .lightGray
+        selectBtn.isEnabled = true
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         print(#fileID, #function, #line, "- <# 주석 #>")
         linkNameButton?.setTitle("링크버튼입니다", for: .normal)
-        
+     
     }
     
     
@@ -56,20 +65,31 @@ class WebLinkTableViewCell: UITableViewCell {
         }
     }
     
-    
-    @IBAction func selectClicked(_ sender: UIButton) {
+   
+    @IBAction func selectButtonClikced(_ sender: UIButton) {
         print(#fileID, #function, #line, "-  셀렉트버튼 클릭: \(sender.isSelected) 기본값 false")
         // didSelectRowAt에서 선택을 감지하게 하는 코드!!
-        if let tableView = self.superview as? UITableView, let index = tableView.indexPath(for: self) {
-            tableView.delegate?.tableView?(tableView, didSelectRowAt: index)
-            print(#fileID, #function, #line, "- tableView\(tableView)")
-        }
+//        if let tableView = self.superview as? UITableView, let index = tableView.indexPath(for: self) {
+//            tableView.delegate?.tableView?(tableView, didSelectRowAt: index)
+//            print(#fileID, #function, #line, "- tableView\(tableView)")
+//        }
         
-        if sender.configuration?.baseForegroundColor == .systemGreen {
-            sender.configuration?.baseForegroundColor = .lightGray
-        } else {
-            sender.configuration?.baseForegroundColor = .systemGreen
-        }
+        
+        // 토글 왔다갔다
+        self.selectBtn.isSelected = !self.selectBtn.isSelected
+        
+        // 지뢰 터짐
+        self.celldelegate?.didSelectButton(sender: self)
+        
+        
+//        if sender.configuration?.baseForegroundColor == .systemGreen {
+//            sender.configuration?.baseForegroundColor = .lightGray
+//            self.selectBtn.isSelected = false
+//
+//        } else {
+//            sender.configuration?.baseForegroundColor = .systemGreen
+//            self.selectBtn.isSelected = true
+//        }
         
         
         
