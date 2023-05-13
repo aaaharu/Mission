@@ -13,6 +13,13 @@ protocol WebLinkTableViewCellDelegate: AnyObject {
     func didSelectButton(sender: WebLinkTableViewCell)
 }
 
+protocol linkBtnDelegate: AnyObject {
+    func didClickedLinkBtn(sender: WebLinkTableViewCell)
+}
+
+
+
+
 class WebLinkTableViewCell: UITableViewCell {
     @objc func sendData(string: String) {
         print(#fileID, #function, #line, "- <# 주석 #>")
@@ -22,7 +29,9 @@ class WebLinkTableViewCell: UITableViewCell {
     @IBOutlet weak var selectBtn: UIButton!
     weak var delegate: ViewControllerDelegate? = nil // 리모콘
     
-    var celldelegate: WebLinkTableViewCellDelegate?
+    weak var celldelegate: WebLinkTableViewCellDelegate?
+    
+    weak var btnDelegate: linkBtnDelegate?
     
     @IBOutlet weak var linkNameButton: UIButton!
     
@@ -65,7 +74,15 @@ class WebLinkTableViewCell: UITableViewCell {
         }
     }
     
-   
+    
+    @IBAction func linkBtnClicked(_ sender: UIButton) {
+            print(#fileID, #function, #line, "-  주석 ")
+        
+        self.btnDelegate?.didClickedLinkBtn(sender: self)
+        
+        
+    }
+    
     @IBAction func selectButtonClikced(_ sender: UIButton) {
         print(#fileID, #function, #line, "-  셀렉트버튼 클릭: \(sender.isSelected) 기본값 false")
         // didSelectRowAt에서 선택을 감지하게 하는 코드!!

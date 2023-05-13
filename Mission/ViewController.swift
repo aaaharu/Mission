@@ -15,15 +15,24 @@ protocol ViewControllerDelegate: AnyObject{
 
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate {
-  
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate, linkBtnDelegate {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     var indexPathRowArray: [Int] = []
     
-
-
+    
+    
     
     //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
-
+    
     var selectedTags = Set<Int>()
     
     
@@ -160,16 +169,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
             
             // 버튼이 눌려지면 태그 값은 인덱스 패스 값을 받아온다. (didSelectRow에 데이터가 가기 위해서, 버튼만 누르면 셀 선택 감지 X)
-//            cell.selectBtn.tag = indexPath.row
+            //            cell.selectBtn.tag = indexPath.row
             
             
             // 태그값, 즉 버튼이 눌러져서 태그값이 전달되어 인덱스패스값으로 전환되었다면
             // 해당 셀의 버튼은 눌려진 상태로 표시한다.
-//            if selectedTags.contains(indexPath.row) {
-//                cell.selectBtn.isSelected = true
-//            } else {
-//                cell.selectBtn.isSelected = false
-//            }
+            //            if selectedTags.contains(indexPath.row) {
+            //                cell.selectBtn.isSelected = true
+            //            } else {
+            //                cell.selectBtn.isSelected = false
+            //            }
             
             
             getIndexPath = indexPath
@@ -184,14 +193,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // 셀의 인덱스 패스는 테이블뷰가 가지고 있는 인덱스 패스
             cell.indexPath = indexPath
             
-          
-    
+            
+            
             
             cell.celldelegate = self
             cell.delegate = self // 셀의 델리게이트는 viewcontroller이다.
+            cell.btnDelegate = self
             
             
-            cell.linkNameButton.addTarget(self, action: #selector(linkGo), for: .touchUpInside)
+            
             
             return cell
         }
@@ -200,30 +210,48 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    
+    func didClickedLinkBtn(sender: WebLinkTableViewCell ) {
+        
+        if  let indexPath = sender.indexPath {
+            let linkData: String  = linkArray[indexPath.row]
+            print(#fileID, #function, #line, "-  ")
+            guard let settingsUrl = URL(string: linkData) else {
+                return
+            }
+            
+            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+            print(#fileID, #function, #line, "- linkData:\(settingsUrl)")
+            print(#fileID, #function, #line, "- indexPath: \(indexPath)")
+        }
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
-//
-//            // 버튼의 태그 값은 눌려진 인덱스패스 값이다. (cellForRow와 함께)
-//            cell.selectBtn.tag = indexPath.row
-//            print(#fileID, #function, #line, "- cell.selectBtn.tag: \(cell.selectBtn.tag)")
-//
-//            //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
-//
-//            // tag(indexPath.row)값이 이미 있다면 그 값을 삭제해라
-//            if selectedTags.contains(indexPath.row) {
-//                selectedTags.remove(indexPath.row)
-//            // 그 값이 없다면 태그모음에 에 저장해라
-//            } else {
-//                selectedTags.insert(indexPath.row)
-//            }
-//
-//            // 테이블뷰 다시 로드
-//            tableView.reloadRows(at: [indexPath], with: .automatic)
-//
-//
-//            print(#fileID, #function, #line, "- selectedTags: \(selectedTags)")
-//
-//        }
+        //        if let cell = myTableView.dequeueReusableCell(withIdentifier: "WebLinkTableViewCell") as? WebLinkTableViewCell {
+        //
+        //            // 버튼의 태그 값은 눌려진 인덱스패스 값이다. (cellForRow와 함께)
+        //            cell.selectBtn.tag = indexPath.row
+        //            print(#fileID, #function, #line, "- cell.selectBtn.tag: \(cell.selectBtn.tag)")
+        //
+        //            //selectedTags(버튼이 눌린 태그를 IndexPath.row로 치환해서 저장한 변수)
+        //
+        //            // tag(indexPath.row)값이 이미 있다면 그 값을 삭제해라
+        //            if selectedTags.contains(indexPath.row) {
+        //                selectedTags.remove(indexPath.row)
+        //            // 그 값이 없다면 태그모음에 에 저장해라
+        //            } else {
+        //                selectedTags.insert(indexPath.row)
+        //            }
+        //
+        //            // 테이블뷰 다시 로드
+        //            tableView.reloadRows(at: [indexPath], with: .automatic)
+        //
+        //
+        //            print(#fileID, #function, #line, "- selectedTags: \(selectedTags)")
+        //
+        //        }
     }
     
     
@@ -237,7 +265,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         for i in indexPathRowArray.sorted(by: >) {
             linkArray.remove(at: i)
             print(#fileID, #function, #line, "- indexpathRow: \(indexPathRowArray)")
-           
+            
         }
         
         // 2. 셀을 지운다.(리로드)
@@ -275,19 +303,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    @objc func linkGo(_ sender: UIButton) {
-        print(#fileID, #function, #line, "- <# 주석 #>")
-        if let getIndexPath = getIndexPath {
-            let linkData: String = "https://" + "\(linkArray[getIndexPath.row])"
-            print(#fileID, #function, #line, "- <# 주석 #>")
-            guard let settingsUrl = URL(string: linkData) else {
-                print(#fileID, #function, #line, "- linkData:\(linkData)")
-                return
-            }
-            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
-            print(#fileID, #function, #line, "- <# 주석 #>")
-        }
-    }
     
     
     
@@ -302,7 +317,7 @@ extension ViewController: WebLinkTableViewCellDelegate {
     // 여기서부터 didSelectButton은 내가 지휘한다
     // 지뢰 심기
     func didSelectButton(sender: WebLinkTableViewCell) {
-       
+        
         guard let indexPath = self.myTableView.indexPath(for: sender) else { return }
         
         // sender의 버튼이 눌러졌을 때
@@ -330,9 +345,9 @@ extension ViewController: WebLinkTableViewCellDelegate {
         }
     }
 }
-    
 
-    
+
+
 
 
 
