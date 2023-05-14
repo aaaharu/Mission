@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol ViewControllerDelegate: AnyObject{
     func deleteLink(indexpath: IndexPath)
@@ -15,7 +16,7 @@ protocol ViewControllerDelegate: AnyObject{
 
 
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate, linkBtnDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ViewControllerDelegate, linkBtnDelegate, SFSafariViewControllerDelegate{
     
     
     
@@ -210,17 +211,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    // http:// or https://가 붙어 있지 않다면 http://를 붙인다
+    func httpCheck(url: String) -> String {
+        var url = url
+        if !url.hasPrefix("http://") && !url.hasPrefix("https://") {
+            url = "http://" + url
+        }
+        return url
+    }
     
     func didClickedLinkBtn(sender: WebLinkTableViewCell ) {
         
+        
         if  let indexPath = sender.indexPath {
-            let linkData: String  = linkArray[indexPath.row]
+            var linkData: String  = linkArray[indexPath.row]
             print(#fileID, #function, #line, "-  ")
+            // http:// 체크
+            linkData = httpCheck(url: linkData)
+            print(#fileID, #function, #line, "- \(linkData)")
             guard let settingsUrl = URL(string: linkData) else {
                 return
             }
             
-            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+            // safari VC
+            let vc = SFSafariViewController(url: settingsUrl)
+            vc.delegate = self
+            present(vc, animated: true)
+            
+            
+            //            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
             print(#fileID, #function, #line, "- linkData:\(settingsUrl)")
             print(#fileID, #function, #line, "- indexPath: \(indexPath)")
         }
