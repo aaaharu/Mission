@@ -3,4 +3,54 @@
    uuid = "1EBB0091-AB06-4B69-9C1D-0B01AB8BE2A7"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D3250CA-6806-4A68-9748-F161FEB73F0B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Mission/APITestVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getApiCall()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "3D3250CA-6806-4A68-9748-F161FEB73F0B - 8c2f67e8341a113"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Mission.APITestVC.getApiCall() -&gt; ()"
+                  moduleName = "Mission"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gim-eunji/Desktop/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%83%E1%85%A2%E1%84%85%E1%85%B5%E1%84%82%E1%85%B5%E1%86%B7%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A6/Mission/Mission/APITestVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1340">
+               </Location>
+               <Location
+                  uuid = "3D3250CA-6806-4A68-9748-F161FEB73F0B - 8c2f67e8341a113"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Mission.APITestVC.getApiCall() -&gt; ()"
+                  moduleName = "Mission"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gim-eunji/Desktop/%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%83%E1%85%A2%E1%84%85%E1%85%B5%E1%84%82%E1%85%B5%E1%86%B7%E1%84%80%E1%85%AA%E1%84%8C%E1%85%A6/Mission/Mission/APITestVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1436">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

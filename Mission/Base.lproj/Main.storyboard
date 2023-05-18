@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sy4-tZ-Mzm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dwb-rr-73f">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5T-Th-xum">
-                                <rect key="frame" x="20" y="778" width="353" height="35"/>
+                                <rect key="frame" x="20" y="729" width="353" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="웹사이트 추가 하러가기"/>
                                 <connections>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="sgX-9T-zxj">
-                                <rect key="frame" x="20" y="165" width="353" height="591"/>
+                                <rect key="frame" x="20" y="165" width="353" height="542"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -80,7 +80,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5i-oG-cit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="di8-Pt-Z0k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1016" y="-780"/>
+            <point key="canvasLocation" x="1908" y="-1649"/>
         </scene>
         <!--ConnectVC-->
         <scene sceneID="FDV-U4-y2q">
@@ -97,11 +97,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zZD-oz-kqa">
-                                <rect key="frame" x="20" y="151" width="353" height="594"/>
+                                <rect key="frame" x="20" y="151" width="353" height="545"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-xc-MX6">
-                                <rect key="frame" x="20" y="778" width="353" height="35"/>
+                                <rect key="frame" x="20" y="729" width="353" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료"/>
                                 <connections>
@@ -109,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqb-XU-vMS">
-                                <rect key="frame" x="20.000000000000007" y="750" width="100.66666666666669" height="28.333333333333371"/>
+                                <rect key="frame" x="20.000000000000007" y="701" width="100.66666666666669" height="28.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="+ 웹사이트 추가">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
@@ -119,7 +119,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDG-P4-HfO">
-                                <rect key="frame" x="175" y="749" width="198" height="29"/>
+                                <rect key="frame" x="175" y="700" width="198" height="29"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="웹사이트는 3개까지 추가 가능합니다">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
@@ -163,12 +163,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5Z-ci-Shz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="CuI-2j-6wj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="-728"/>
+            <point key="canvasLocation" x="2703" y="-1158"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="ZVV-mb-9CK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sy4-tZ-Mzm" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="YfR-VF-fb9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n55-CD-En5">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -181,10 +182,89 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld6-gx-q1m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1098" y="-1174"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="vHH-ag-H7g">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Dwb-rr-73f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WIa-9B-Q7E">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Sy4-tZ-Mzm" kind="relationship" relationship="viewControllers" id="JPl-5B-RYm"/>
+                        <segue destination="IbR-PS-pIE" kind="relationship" relationship="viewControllers" id="ncv-zM-A10"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A9e-gy-9s9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="220.61068702290075" y="-740.14084507042253"/>
+        </scene>
+        <!--API 연습-->
+        <scene sceneID="oC8-Ga-55T">
+            <objects>
+                <viewController storyboardIdentifier="APITestVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IbR-PS-pIE" customClass="APITestVC" customModule="Mission" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cc0-JW-O9H">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="y2e-7Y-z2b">
+                                <rect key="frame" x="20" y="597.66666666666663" width="353" height="161.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecx-4g-6DE">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="GET"/>
+                                        <connections>
+                                            <action selector="btnClickedWithSender:" destination="IbR-PS-pIE" eventType="touchUpInside" id="Efo-g1-DCp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-4Q-1rN">
+                                        <rect key="frame" x="0.0" y="42.333333333333371" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="PUT"/>
+                                        <connections>
+                                            <action selector="btnClickedWithSender:" destination="IbR-PS-pIE" eventType="touchUpInside" id="pR8-ux-ns4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOa-kl-dA3">
+                                        <rect key="frame" x="0.0" y="84.666666666666742" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="DELETE"/>
+                                        <connections>
+                                            <action selector="btnClickedWithSender:" destination="IbR-PS-pIE" eventType="touchUpInside" id="GIU-11-2kg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JIX-0P-bXJ">
+                                        <rect key="frame" x="0.0" y="126.99999999999999" width="353" height="34.333333333333329"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="POST"/>
+                                        <connections>
+                                            <action selector="btnClickedWithSender:" destination="IbR-PS-pIE" eventType="touchUpInside" id="V1d-CX-ePf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TWh-PI-Zeq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y2e-7Y-z2b" firstAttribute="centerX" secondItem="TWh-PI-Zeq" secondAttribute="centerX" id="I9z-yU-Jr9"/>
+                            <constraint firstItem="TWh-PI-Zeq" firstAttribute="bottom" secondItem="y2e-7Y-z2b" secondAttribute="bottom" constant="10" id="mdB-zZ-wVS"/>
+                            <constraint firstItem="y2e-7Y-z2b" firstAttribute="leading" secondItem="TWh-PI-Zeq" secondAttribute="leading" constant="20" id="w9O-8g-y31"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="API 연습" image="pencil.tip.crop.circle" catalog="system" id="r9b-Md-JPu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="akO-yZ-guc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="-222"/>
         </scene>
     </scenes>
     <resources>
+        <image name="pencil.tip.crop.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

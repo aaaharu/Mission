@@ -226,7 +226,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if  let indexPath = sender.indexPath {
             var linkData: String  = linkArray[indexPath.row]
             print(#fileID, #function, #line, "-  ")
-            // http:// 체크
+            // http url 체크
             linkData = httpCheck(url: linkData)
             print(#fileID, #function, #line, "- \(linkData)")
             guard let settingsUrl = URL(string: linkData) else {

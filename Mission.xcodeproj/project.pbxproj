@@ -10,6 +10,8 @@
 		D34D105D2A07D4EE00424206 /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D105C2A07D4EE00424206 /* ConnectVC.swift */; };
 		D34D105F2A07D57800424206 /* ConnectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D34D105E2A07D57800424206 /* ConnectTableViewCell.xib */; };
 		D34D10612A07D58100424206 /* ConnectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34D10602A07D58100424206 /* ConnectTableViewCell.swift */; };
+		D37877DF2A1625FA00B8FF38 /* APITestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37877DE2A1625FA00B8FF38 /* APITestVC.swift */; };
+		D37877E32A16303700B8FF38 /* TodoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37877E22A16303700B8FF38 /* TodoListResponse.swift */; };
 		D3BA0F352A0542CF001C66C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */; };
 		D3BA0F372A0542CF001C66C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */; };
 		D3BA0F392A0542CF001C66C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0F382A0542CF001C66C5 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		D34D105C2A07D4EE00424206 /* ConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		D34D105E2A07D57800424206 /* ConnectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectTableViewCell.xib; sourceTree = "<group>"; };
 		D34D10602A07D58100424206 /* ConnectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTableViewCell.swift; sourceTree = "<group>"; };
+		D37877DE2A1625FA00B8FF38 /* APITestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestVC.swift; sourceTree = "<group>"; };
+		D37877E22A16303700B8FF38 /* TodoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListResponse.swift; sourceTree = "<group>"; };
 		D3BA0F312A0542CF001C66C5 /* Mission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D37877E12A16300D00B8FF38 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				D37877E22A16303700B8FF38 /* TodoListResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		D3BA0F282A0542CF001C66C5 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +78,7 @@
 		D3BA0F332A0542CF001C66C5 /* Mission */ = {
 			isa = PBXGroup;
 			children = (
+				D37877E12A16300D00B8FF38 /* Response */,
 				D3BA0F342A0542CF001C66C5 /* AppDelegate.swift */,
 				D3BA0F362A0542CF001C66C5 /* SceneDelegate.swift */,
 				D3BA0F382A0542CF001C66C5 /* ViewController.swift */,
@@ -73,6 +86,7 @@
 				D34D105E2A07D57800424206 /* ConnectTableViewCell.xib */,
 				D34D10602A07D58100424206 /* ConnectTableViewCell.swift */,
 				D3BA0F3A2A0542CF001C66C5 /* Main.storyboard */,
+				D37877DE2A1625FA00B8FF38 /* APITestVC.swift */,
 				D3BA0F4A2A0542DD001C66C5 /* WebLinkTableViewCell.swift */,
 				D3BA0F492A0542DD001C66C5 /* WebLinkTableViewCell.xib */,
 				D3BA0F3D2A0542D0001C66C5 /* Assets.xcassets */,
@@ -157,6 +171,8 @@
 			files = (
 				D34D10612A07D58100424206 /* ConnectTableViewCell.swift in Sources */,
 				D3BA0F4D2A0542DD001C66C5 /* WebLinkTableViewCell.swift in Sources */,
+				D37877E32A16303700B8FF38 /* TodoListResponse.swift in Sources */,
+				D37877DF2A1625FA00B8FF38 /* APITestVC.swift in Sources */,
 				D34D105D2A07D4EE00424206 /* ConnectVC.swift in Sources */,
 				D3BA0F392A0542CF001C66C5 /* ViewController.swift in Sources */,
 				D3BA0F352A0542CF001C66C5 /* AppDelegate.swift in Sources */,

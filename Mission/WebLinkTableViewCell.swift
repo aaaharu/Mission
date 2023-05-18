@@ -62,6 +62,7 @@ class WebLinkTableViewCell: UITableViewCell {
         super.awakeFromNib()
         print(#fileID, #function, #line, "- <# 주석 #>")
         linkNameButton?.setTitle("링크버튼입니다", for: .normal)
+           
      
     }
     
